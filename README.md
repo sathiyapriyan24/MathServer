@@ -1,5 +1,5 @@
 # Ex.04 Design a Website for Server Side Processing
-## Date:
+## Date:27.2.2026
 
 ## AIM:
 To create a web page to calculate total bill amount with GST from price and GST percentage using server-side scripts.
@@ -43,13 +43,79 @@ Render the result to the HTML template.
 Publish the website in Localhost.
 
 ## PROGRAM:
+~~~
+math.html
 
+<html>
+    <head>
+        <title>Total Price</title>
+        <style>
+            body {
+    margin: 0;
+    background-color: purple;
+}
+
+.box {
+    background-color: gray;
+    width: 300px;
+    padding: 30px;
+    border: 5px dashed red;
+
+    margin: 100px auto;  
+    text-align: center;
+}
+        </style>
+    </head>
+    <body>
+
+        <div class="box">
+        <h1><B>TOTAL PRICE</B></h1>
+        <h3>SATHYA PRIYAN G(25018768)</h3>
+        <form method="POST">
+            {% csrf_token %}
+            <label>Price</label>
+            <input type="text" name="Price" value="{{price}}">
+            <br>
+            <br>
+            <label>GST</label>
+            <input type="text" name="GST" value="{{gst}}">
+            <br>
+            <br>
+            <button>Calculate</button>
+            <br>
+            <br>
+            <label>Total price</label>
+            <input type="text" name="Total" value="{{total}}">
+        </div>
+        </form>
+    </body>
+</html>
+
+views.py
+
+from django.shortcuts import render
+def Total_price(request):
+    price = int(request.POST.get("Price", 0))
+    gst = int(request.POST.get("GST", 0))
+
+    total = price + (price * gst / 100) if request.method == "POST" else 0
+
+    print("Price=", price)
+    print("GST=", gst)
+    print("Total=", total)
+
+    return render(request, 'myapp/math.html', {
+        'Price': price,
+        'GST': gst,
+        'Total': total
+    })
+~~~
 
 ## OUTPUT - SERVER SIDE:
-
+![alt text](<Screenshot (24).png>)
 
 ## OUTPUT - WEBPAGE:
-
+![alt text](<Screenshot (25).png>)
 
 ## RESULT:
 The a web page to calculate total bill amount with GST from price and GST percentage using server-side scripts is created successfully.
