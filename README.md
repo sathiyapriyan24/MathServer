@@ -118,12 +118,11 @@ def Total_price(request):
 ~~~
 
 ## OUTPUT - SERVER SIDE:
+![alt text](<Screenshot (33)-1.png>)
 
-![alt text](<Screenshot (31)-1.png>)
 
 ## OUTPUT - WEBPAGE:
 
-![alt text](<Screenshot (30).png>)
-
+![alt text](<Screenshot (32)-1.png>)
 ## RESULT:
 The a web page to calculate total bill amount with GST from price and GST percentage using server-side scripts is created successfully.
