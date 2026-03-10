@@ -48,30 +48,36 @@ math.html
 
 <html>
     <head>
-        <title>Total Price</title>
+        <title>Total</title>
         <style>
             body {
     margin: 0;
-    background-color: purple;
+    background-color: rgb(16, 11, 16);
 }
 
-.box {
-    background-color: gray;
+.container {
+    background-color: rgb(41, 213, 202);
     width: 300px;
     padding: 30px;
-    border: 5px dashed red;
+    border: 5px dashed rgb(226, 35, 95);
 
     margin: 100px auto;  
     text-align: center;
+}
+.container h1{
+    color:blue;
+}
+.container h4{
+    color:green;
 }
         </style>
     </head>
     <body>
 
-        <div class="box">
-        <h1><B>TOTAL PRICE</B></h1>
-        <h3>SATHYA PRIYAN G(25018768)</h3>
-        <form method="POST">
+        <div class="container">
+            <h1>TOTAL</h1>
+            <h4>SATHYA PRIYAN G(25018768)</h4>
+            <form method="POST">
             {% csrf_token %}
             <label>Price</label>
             <input type="text" name="Price" value="{{price}}">
@@ -86,8 +92,8 @@ math.html
             <br>
             <label>Total price</label>
             <input type="text" name="Total" value="{{total}}">
+            </form>
         </div>
-        </form>
     </body>
 </html>
 
@@ -112,10 +118,12 @@ def Total_price(request):
 ~~~
 
 ## OUTPUT - SERVER SIDE:
-![alt text](<Screenshot (24).png>)
+
+![alt text](<Screenshot (31)-1.png>)
 
 ## OUTPUT - WEBPAGE:
-![alt text](<Screenshot (25).png>)
+
+![alt text](<Screenshot (30).png>)
 
 ## RESULT:
 The a web page to calculate total bill amount with GST from price and GST percentage using server-side scripts is created successfully.
